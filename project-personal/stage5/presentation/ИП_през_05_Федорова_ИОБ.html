@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Федорова А.И">
+  <title>Презентация по выполнению индивидуального проекта №5</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freset%2Ecss" rel="stylesheet">
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freveal%2Ecss" rel="stylesheet">
+  <style>
+.reveal .sourceCode { 
+overflow: visible;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <link href="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Ftheme%2Fbeige%2Ecss" rel="stylesheet" id="theme">
+  
+  
+  
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Презентация по выполнению индивидуального проекта
+№5</h1>
+  <p class="subtitle">Основы информационной безопасности</p>
+  <p class="author">Федорова А.И</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">09 мая 2024</p>
+</section>
+
+<section id="цель" class="slide level2">
+<h2>Цель</h2>
+<p>Научиться использовать Burp Suite.</p>
+</section>
+<section id="выполнение-лабораторной-работы" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Запускаю локальный сервер, на котором открою веб-приложение DVWA для
+тестирования инструмента Burp Suite</p>
+</section>
+<section id="выполнение-лабораторной-работы-1" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Запускаю инструмент Burp Suite</p>
+</section>
+<section id="выполнение-лабораторной-работы-2" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Открываю сетевые настройки браузера, для подготовке к работе</p>
+</section>
+<section id="выполнение-лабораторной-работы-3" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Изменение настроек сервера для работы с proxy и захватом данных с
+помощью Burp Suite</p>
+</section>
+<section id="выполнение-лабораторной-работы-4" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Изменяю настройки Proxy инструмента Burp Suite для дальнейшей
+работы</p>
+</section>
+<section id="выполнение-лабораторной-работы-5" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Во вкладке Proxy устанавливаю “Intercept is on”</p>
+</section>
+<section id="выполнение-лабораторной-работы-6" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Чтобы Burp Suite исправно работал с локальным сервером, наобходимо
+установить параметр <code>network_allow_hijacking_loacalhost</code> на
+<code>true</code></p>
+</section>
+<section id="выполнение-лабораторной-работы-7" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Пытаюсь зайти в браузере на DVWA, тут же во вкладки Proxy появляется
+захваченный запрос. Нажимаем “Forward”, чтобы загрузить страницу</p>
+</section>
+<section id="выполнение-лабораторной-работы-8" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Загрузилась страница авторизации, текст запроса поменялся ##
+Выполнение лабораторной работы</p>
+<p>История запросов хранится во вкладке Target</p>
+</section>
+<section id="выполнение-лабораторной-работы-9" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Попробуем ввести неправильные, случайные данные в веб-приложении и
+нажмем <code>Login</code>. В запросе увидим строку, в которой
+отображаются введенные нами данные, то есть поле для ввода</p>
+</section>
+<section id="выполнение-лабораторной-работы-10" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Этот запрос так же можно найти во вкладке Target, там же жмем правой
+кнопкой мыши на хост нужного запроса, и далее нажимаем “Send to
+Intruder”</p>
+</section>
+<section id="выполнение-лабораторной-работы-11" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Попадаем на вкладку Intruder, видим значения по умолчанию у типа
+атаки и наш запрос</p>
+</section>
+<section id="выполнение-лабораторной-работы-12" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Изменяем значение типа атаки на Cluster bomb и проставляем
+специальные символы у тех данных в форме для ввода, которые будем
+пробивать, то есть у имени пользователя и пароля</p>
+</section>
+<section id="выполнение-лабораторной-работы-13" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Так как мы отметили два параметра для подбора, то нам нужно два
+списка со значениями для подбора. Заполняем первый список в
+<code>Payload setting</code></p>
+</section>
+<section id="выполнение-лабораторной-работы-14" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Переключаемся на второй список и добавляем значения в него. В строке
+request count видим нужное количество запросов, чтобы проверить все
+возможные пары пользователь-пароль</p>
+</section>
+<section id="выполнение-лабораторной-работы-15" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Запускаю атаку и начинаю подбор</p>
+</section>
+<section id="выполнение-лабораторной-работы-16" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>При открытии результата каждого post-запроса можно увидеть полученный
+get-запрос, в нем видно, куда нас перенаправило после выполнения ввода
+пары пользователь-пароль. В представленном случае с подбором пары
+admin-admin нас перенаправило на login.php, это значит, что пара не
+подходит</p>
+</section>
+<section id="выполнение-лабораторной-работы-17" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Проверим результат пары admin-password во вкладке Response, теперь
+нас перенаправляет на страницу index.php, значит пара должна быть
+верной</p>
+</section>
+<section id="выполнение-лабораторной-работы-18" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Дополнительная проверка с использованием Repeater, нажимаем на нужный
+нам запрос правой кнопкой мыши и жмем “Send to Repeater”</p>
+</section>
+<section id="выполнение-лабораторной-работы-19" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Переходим во вкладку “Repeater”</p>
+</section>
+<section id="выполнение-лабораторной-работы-20" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Нажимаем “send”, получаем в Response в результат перенаправление на
+index.php</p>
+</section>
+<section id="выполнение-лабораторной-работы-21" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>После нажатия на <code>Follow redirection</code>, получим
+нескомпилированный html код в окне Response</p>
+</section>
+<section id="выполнение-лабораторной-работы-22" class="slide level2">
+<h2>Выполнение лабораторной работы</h2>
+<p>Далее в подокне Render получим то, как выглядит полученная
+страница</p>
+</section>
+<section id="вывод" class="slide level2">
+<h2>Вывод</h2>
+<p>При выполнении лабораторной работы научилась использовать инструмент
+Burp Suite.</p>
+<p>:::</p>
+</section>
+    </div>
+  </div>
+
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freveal%2Ejs"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fnotes%2Fnotes%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fsearch%2Fsearch%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fzoom%2Fzoom%2Ejs"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
